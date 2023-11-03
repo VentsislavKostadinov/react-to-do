@@ -1,24 +1,8 @@
 import React from 'react'
-import './App.scss'
-import { AppButton } from './common/Button'
+import { AppContainer } from './AppContainer'
 
 function App() {
-    return (
-        <div className="App">
-            <AppButton
-                dataTestid="primary"
-                className="primary"
-                variant="primary"
-                text="Primary"
-            />
-            <AppButton
-                dataTestid="secondary"
-                className="secondary"
-                variant="secondary"
-                text="Secondary"
-            />
-        </div>
-    )
+    return <AppContainer />
 }
 
 export default App

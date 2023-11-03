@@ -1,6 +1,9 @@
 @import './font.scss';
 
-.App {
+.container {
+  margin-top: 5em;
   font-family: "Poppins-Regular", serif;
   text-align: center;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  
 }

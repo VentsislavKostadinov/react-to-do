@@ -4,6 +4,7 @@ import { ButtonProps } from '../model/ButtonProps'
 export const AppButton = ({
     text,
     variant,
+    type,
     className,
     dataTestid,
 }: ButtonProps) => {
@@ -12,6 +13,7 @@ export const AppButton = ({
             data-testid={dataTestid}
             className={className}
             variant={variant}
+            type={type}
         >
             {text}
         </Button>
