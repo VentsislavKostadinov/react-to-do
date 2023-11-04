@@ -7,6 +7,7 @@ import { CommonInput } from './common/CommonInput'
 import { CommonInvalidValiadationFeedback } from './common/CommonInvalidValiadationFeedback'
 import { Task } from './Task'
 import { TaskProps } from './model/TaskProps.types'
+import './TaskList.scss'
 
 export const TaskList = ({
     tasks,
