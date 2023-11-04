@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { TaskProps } from './model/TaskProps.types'
 import { CommonInput } from './common/CommonInput'
 import { CommonButton } from './common/CommonButton'
+import { ListGroup } from 'react-bootstrap'
+import './Task.scss'
 
 export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     const [isEditing, setIsEditing] = useState<boolean>(false)
@@ -28,16 +30,21 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     }
 
     return (
-        <div className={`task ${task.completed ? 'completed' : ''}`}>
-            <CommonInput
-                type="checkbox"
-                className="input-checkbox"
-                data-testid="input-checkbox"
-                checked={task.completed}
-                handleChange={handleOnComplete}
-            ></CommonInput>
+        <ListGroup
+            horizontal
+            className={`task ${task.completed ? 'completed' : ''}`}
+        >
+            <ListGroup.Item>
+                <CommonInput
+                    type="checkbox"
+                    className="input-checkbox"
+                    data-testid="input-checkbox"
+                    checked={task.completed}
+                    handleChange={handleOnComplete}
+                ></CommonInput>
+            </ListGroup.Item>
             {isEditing ? (
-                <>
+                <ListGroup.Item>
                     <CommonInput
                         className="input-text-edit"
                         data-testid="input-text-edit"
@@ -51,24 +58,28 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
                         type="button"
                         handleClick={handleSave}
                     />
-                </>
+                </ListGroup.Item>
             ) : (
                 <>
-                    <p>{task.description}</p>
-                    <CommonButton
-                        text="Edit"
-                        variant="info"
-                        type="button"
-                        handleClick={handleEditTask}
-                    />
+                    <ListGroup.Item>{task.description}</ListGroup.Item>
+                    <ListGroup.Item>
+                        <CommonButton
+                            text="Edit"
+                            variant="transparent"
+                            type="button"
+                            handleClick={handleEditTask}
+                        />
+                    </ListGroup.Item>
                 </>
             )}
-            <CommonButton
-                text="Delete"
-                variant="warning"
-                type="button"
-                handleClick={handleDelete}
-            />
-        </div>
+            <ListGroup.Item>
+                <CommonButton
+                    text="Delete"
+                    variant="transparent"
+                    type="button"
+                    handleClick={handleDelete}
+                />
+            </ListGroup.Item>
+        </ListGroup>
     )
 }

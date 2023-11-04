@@ -52,7 +52,7 @@ export const App = () => {
     }
 
     return (
-        <div>
+        <div className="to-do">
             <TaskList
                 tasks={sortIncompletedTasks(tasks)}
                 onAdd={addTask}
@@ -64,9 +64,7 @@ export const App = () => {
                 <h3>Completed Tasks</h3>
                 {tasks.map((task: TaskProps['task']) => {
                     const completed = task.completed
-                    if (completed) {
-                        return <p key={task.id}>{task.description}</p>
-                    }
+                    return completed && <p key={task.id}>{task.description}</p>
                 })}
             </div>
         </div>
