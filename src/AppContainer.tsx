@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { AppButton } from './common/AppButton'
-import { AppHeadline } from './common/AppHeadline'
+import { CommonButton } from './common/CommonButton'
+import { CommonHeadline } from './common/CommonHeadline'
 import { Container, Form } from 'react-bootstrap'
-import { AppInput } from './common/AppInput'
-import { InvalidValiadationFeedback } from './common/InvalidValiadationFeedback'
+import { CommonInput } from './common/CommonInput'
+import { CommonInvalidValiadationFeedback } from './common/CommonInvalidValiadationFeedback'
 import './AppContainer.scss'
 
 export const AppContainer = () => {
@@ -29,9 +29,9 @@ export const AppContainer = () => {
 
     return (
         <Container>
-            <AppHeadline title="To Do App" />
+            <CommonHeadline title="To Do App" />
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                <AppInput
+                <CommonInput
                     type="text"
                     value={valueText}
                     handleChange={handleChange}
@@ -39,9 +39,9 @@ export const AppContainer = () => {
                     className="add-input"
                     dataTestid="add-input"
                 >
-                    <AppButton variant="primary" text="Add" type="submit" />
-                    <InvalidValiadationFeedback text="Please type a description" />
-                </AppInput>
+                    <CommonButton variant="primary" text="Add" type="submit" />
+                    <CommonInvalidValiadationFeedback text="Please type a description" />
+                </CommonInput>
             </Form>
             <h3>{submittedValue}</h3>
         </Container>

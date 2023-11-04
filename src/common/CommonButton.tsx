@@ -1,10 +1,11 @@
 import { Button } from 'react-bootstrap'
-import { ButtonProps } from '../model/ButtonProps'
+import { ButtonProps } from '../model/ButtonProps.types'
 
-export const AppButton = ({
+export const CommonButton = ({
     text,
     variant,
     type,
+    handleClick,
     className,
     dataTestid,
 }: ButtonProps) => {
@@ -14,6 +15,7 @@ export const AppButton = ({
             className={className}
             variant={variant}
             type={type}
+            onClick={handleClick}
         >
             {text}
         </Button>
