@@ -1,20 +1,16 @@
 @import './font.scss';
+@import './style/variables';
+@import './style/mixins';
 
-    .list-group-horizontal {
-        font-family: "Poppins-Regular", sans-serif;
-        background: #f4f4f4;
-        margin: 0.5rem;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+.list-group-horizontal {
+    @include task-styling;
 
-        .list-group-item {
-            border: inherit;
-            background: inherit;
-        }
-
-        &:hover {
-            background: lightgoldenrodyellow;
-        }
-
+    .list-group-item {
+        border: inherit;
+        background: inherit;
     }
+
+    &:hover {
+        background: $hover-task;
+    }
+}

@@ -6,14 +6,16 @@ import { ListGroup, Form } from 'react-bootstrap'
 import './Task.scss'
 
 export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
-    const [isEditing, setIsEditing] = useState<boolean>(false)
+    const [isEditing, setIsEditing] = useState<TaskProps['task']['completed']>(
+        task.completed,
+    )
     const [editedTask, setEditedTask] = useState<
         TaskProps['task']['description']
     >(task.description)
     const [validated, setValidated] = useState<boolean>(false)
 
-    const handleSave = (event: React.FormEvent) => {
-        event.preventDefault()
+    const handleSave = (e: React.FormEvent) => {
+        e.preventDefault()
 
         if (editedTask === '') {
             setValidated(true)

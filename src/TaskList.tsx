@@ -23,8 +23,8 @@ export const TaskList = ({
         setNewTask(e.target.value)
     }
 
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault()
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
 
         if (newTask === '') {
             setValidated(true)
@@ -48,26 +48,20 @@ export const TaskList = ({
                         className="add-input"
                         dataTestid="add-input"
                     >
-                        <CommonButton
-                            variant="primary"
-                            text="Add"
-                            type="submit"
-                        />
+                        <CommonButton variant="dark" text="Add" type="submit" />
                         <CommonInvalidValiadationFeedback text="Please type a description" />
                     </CommonInput>
                 </Form>
                 {tasks.length !== 0 ? (
-                    tasks.map((task: TaskProps | any, index: number) => {
-                        return (
-                            <Task
-                                key={index}
-                                task={task}
-                                onEdit={onEdit}
-                                onDelete={onDelete}
-                                onComplete={onComplete}
-                            />
-                        )
-                    })
+                    tasks.map((task: TaskProps | any, index: number) => (
+                        <Task
+                            key={index}
+                            task={task}
+                            onEdit={onEdit}
+                            onDelete={onDelete}
+                            onComplete={onComplete}
+                        />
+                    ))
                 ) : (
                     <CommonHeadline title="You list is empty" heading="h3" />
                 )}

@@ -40,13 +40,13 @@ export const App = () => {
     }
 
     const completeTask = (taskId: number) => {
-        setTasks((prevTasks: Array<TaskListProps>) => {
-            return prevTasks.map((task: TaskProps | any) =>
+        setTasks((prevTasks: Array<TaskListProps>) =>
+            prevTasks.map((task: TaskProps | any) =>
                 task.id === taskId
                     ? { ...task, completed: !task.completed }
                     : task,
-            )
-        })
+            ),
+        )
     }
 
     const sortIncompletedTasks = (taskList: TaskListProps | any) => {
