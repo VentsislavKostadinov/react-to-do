@@ -1,0 +1,21 @@
+@import './font.scss';
+
+.completed-list {
+    font-family: 'Poppins-Regular', sans-serif;
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .list-group-item {
+        border: none;
+        background: inherit;
+        margin: 0.5rem;
+        background: #f4f4f4;
+        width: 100%;
+
+        &:hover {
+            background: lightgoldenrodyellow;
+        }
+    }
+}

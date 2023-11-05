@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TaskListProps } from './model/TaskList.types'
+import { TaskListProps } from './model/TaskListProps.types'
 import { Container, Form } from 'react-bootstrap'
 import { CommonButton } from './common/CommonButton'
 import { CommonHeadline } from './common/CommonHeadline'
@@ -28,7 +28,6 @@ export const TaskList = ({
 
         if (newTask === '') {
             setValidated(true)
-            return
         } else {
             setValidated(false)
             onAdd(newTask)
@@ -39,7 +38,7 @@ export const TaskList = ({
     return (
         <div>
             <Container>
-                <CommonHeadline title="To Do App" />
+                <CommonHeadline title="To Do App" heading="h2" />
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <CommonInput
                         type="text"
@@ -57,18 +56,21 @@ export const TaskList = ({
                         <CommonInvalidValiadationFeedback text="Please type a description" />
                     </CommonInput>
                 </Form>
-                {tasks.map((task: TaskProps | any, index: number) => {
-                    return (
-                        <div key={index}>
+                {tasks.length !== 0 ? (
+                    tasks.map((task: TaskProps | any, index: number) => {
+                        return (
                             <Task
+                                key={index}
                                 task={task}
                                 onEdit={onEdit}
                                 onDelete={onDelete}
                                 onComplete={onComplete}
                             />
-                        </div>
-                    )
-                })}
+                        )
+                    })
+                ) : (
+                    <CommonHeadline title="You list is empty" heading="h3" />
+                )}
             </Container>
         </div>
     )

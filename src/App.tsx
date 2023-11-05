@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import './App.scss'
 import { TaskList } from './TaskList'
 import { TaskProps } from './model/TaskProps.types'
-import { TaskListProps } from './model/TaskList.types'
+import { TaskListProps } from './model/TaskListProps.types'
+import { TaskCompletedList } from './TaskListCompleted'
 
 export const App = () => {
     const [tasks, setTasks] = useState(
@@ -60,13 +62,7 @@ export const App = () => {
                 onDelete={deleteTask}
                 onComplete={completeTask}
             />
-            <div>
-                <h3>Completed Tasks</h3>
-                {tasks.map((task: TaskProps['task']) => {
-                    const completed = task.completed
-                    return completed && <p key={task.id}>{task.description}</p>
-                })}
-            </div>
+            <TaskCompletedList tasks={tasks} />
         </div>
     )
 }

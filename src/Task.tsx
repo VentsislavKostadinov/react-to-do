@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { TaskProps } from './model/TaskProps.types'
 import { CommonInput } from './common/CommonInput'
 import { CommonButton } from './common/CommonButton'
-import { ListGroup } from 'react-bootstrap'
+import { ListGroup, Form } from 'react-bootstrap'
 import './Task.scss'
 
 export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
@@ -10,9 +10,17 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     const [editedTask, setEditedTask] = useState<
         TaskProps['task']['description']
     >(task.description)
-    const handleSave = () => {
-        onEdit(task.id, editedTask)
-        setIsEditing(false)
+    const [validated, setValidated] = useState<boolean>(false)
+
+    const handleSave = (event: React.FormEvent) => {
+        event.preventDefault()
+
+        if (editedTask === '') {
+            setValidated(true)
+        } else {
+            onEdit(task.id, editedTask)
+            setIsEditing(false)
+        }
     }
     const saveEditedTask = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEditedTask(e.target.value)
@@ -30,10 +38,7 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     }
 
     return (
-        <ListGroup
-            horizontal
-            className={`task ${task.completed ? 'completed' : ''}`}
-        >
+        <ListGroup horizontal className="task">
             <ListGroup.Item>
                 <CommonInput
                     type="checkbox"
@@ -45,19 +50,26 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
             </ListGroup.Item>
             {isEditing ? (
                 <ListGroup.Item>
-                    <CommonInput
-                        className="input-text-edit"
-                        data-testid="input-text-edit"
-                        type="text"
-                        checked={task.completed}
-                        handleChange={saveEditedTask}
-                    />
-                    <CommonButton
-                        text="Save"
-                        variant="info"
-                        type="button"
-                        handleClick={handleSave}
-                    />
+                    <Form
+                        className="d-flex"
+                        noValidate
+                        validated={validated}
+                        onSubmit={handleSave}
+                    >
+                        <CommonInput
+                            className="input-text-edit"
+                            data-testid="input-text-edit"
+                            type="text"
+                            value={editedTask}
+                            checked={task.completed}
+                            handleChange={saveEditedTask}
+                        />
+                        <CommonButton
+                            text="Save"
+                            variant="transparent"
+                            type="submit"
+                        />
+                    </Form>
                 </ListGroup.Item>
             ) : (
                 <>

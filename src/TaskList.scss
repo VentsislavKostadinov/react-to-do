@@ -1,4 +1,11 @@
 .container {
     text-align: center;
     margin-top: 3rem;
+
+    .task-list {
+        margin-top: 2rem;
+        .list-group-item {
+            border: none;
+        }
+    }
 }

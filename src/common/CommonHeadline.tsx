@@ -1,4 +1,6 @@
 import { HeadlineProps } from '../model/HeadlineProps.types'
 import './CommonHeadline.scss'
 
-export const CommonHeadline = ({ title }: HeadlineProps) => <h2>{title}</h2>
+export const CommonHeadline = ({ title, heading }: HeadlineProps) => (
+    <p className={heading}>{title}</p>
+)

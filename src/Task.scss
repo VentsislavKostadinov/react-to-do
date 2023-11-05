@@ -3,13 +3,13 @@
     .list-group-horizontal {
         font-family: "Poppins-Regular", sans-serif;
         background: #f4f4f4;
-        margin-top: 2rem !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
+        margin: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
 
         .list-group-item {
-            border: none;
+            border: inherit;
             background: inherit;
         }
 
