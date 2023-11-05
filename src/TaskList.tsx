@@ -36,36 +36,33 @@ export const TaskList = ({
     }
 
     return (
-        <div>
-            <Container>
-                <CommonHeadline title="To Do App" heading="h2" />
-                <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                    <CommonInput
-                        type="text"
-                        value={newTask}
-                        handleChange={handleSetNewTask}
-                        placeholder="Enter a description"
-                        className="add-input"
-                        dataTestid="add-input"
-                    >
-                        <CommonButton variant="dark" text="Add" type="submit" />
-                        <CommonInvalidValiadationFeedback text="Please type a description" />
-                    </CommonInput>
-                </Form>
-                {tasks.length !== 0 ? (
-                    tasks.map((task: TaskProps | any, index: number) => (
-                        <Task
-                            key={index}
-                            task={task}
-                            onEdit={onEdit}
-                            onDelete={onDelete}
-                            onComplete={onComplete}
-                        />
-                    ))
-                ) : (
-                    <CommonHeadline title="You list is empty" heading="h3" />
-                )}
-            </Container>
-        </div>
+        <Container>
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                <CommonInput
+                    type="text"
+                    value={newTask}
+                    handleChange={handleSetNewTask}
+                    placeholder="Enter a description"
+                    className="add-input"
+                    dataTestid="add-input"
+                >
+                    <CommonButton variant="dark" text="Add" type="submit" />
+                    <CommonInvalidValiadationFeedback text="Please type a description" />
+                </CommonInput>
+            </Form>
+            {tasks.length !== 0 ? (
+                tasks.map((task: TaskProps | any, index: number) => (
+                    <Task
+                        key={index}
+                        task={task}
+                        onEdit={onEdit}
+                        onDelete={onDelete}
+                        onComplete={onComplete}
+                    />
+                ))
+            ) : (
+                <CommonHeadline title="You list is empty" heading="h3" />
+            )}
+        </Container>
     )
 }

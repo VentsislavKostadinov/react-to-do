@@ -4,11 +4,16 @@ import { TaskList } from './TaskList'
 import { TaskProps } from './model/TaskProps.types'
 import { TaskListProps } from './model/TaskListProps.types'
 import { TaskCompletedList } from './TaskListCompleted'
+import { SearchTask } from './SearchTask'
+import { CommonHeadline } from './common/CommonHeadline'
+import { Container } from 'react-bootstrap'
 
 export const App = () => {
     const [tasks, setTasks] = useState(
         JSON.parse(localStorage.getItem('tasks')!) || [],
     )
+    const [searchTask, setSearchTask] = useState<string>('')
+    const [filteredTasks, setFilteredTasks] = useState(tasks)
 
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -50,11 +55,32 @@ export const App = () => {
     }
 
     const sortIncompletedTasks = (taskList: TaskListProps | any) => {
-        return taskList.filter((task: TaskProps['task']) => !task.completed)
+        if (searchTask === '') {
+            return taskList.filter((task: TaskProps['task']) => !task.completed)
+        } else {
+            return filteredTasks.filter(
+                (task: TaskProps['task']) => !task.completed,
+            )
+        }
+    }
+
+    const handleSearchTask = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const searchTerm = e.target.value
+        setSearchTask(searchTerm)
+
+        const filteredItems: TaskListProps = tasks.filter((task: any) =>
+            task.description.toLowerCase().includes(searchTerm.toLowerCase()),
+        )
+        setFilteredTasks(filteredItems)
     }
 
     return (
-        <div className="to-do">
+        <Container className="to-do">
+            <CommonHeadline title="To Do App" heading="h2" />
+            <SearchTask
+                value={searchTask}
+                handleSearchTask={handleSearchTask}
+            />
             <TaskList
                 tasks={sortIncompletedTasks(tasks)}
                 onAdd={addTask}
@@ -63,6 +89,6 @@ export const App = () => {
                 onComplete={completeTask}
             />
             <TaskCompletedList tasks={tasks} />
-        </div>
+        </Container>
     )
 }
