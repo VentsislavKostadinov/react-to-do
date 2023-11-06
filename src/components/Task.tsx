@@ -48,7 +48,7 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
                     data-testid="input-checkbox"
                     checked={task.completed}
                     handleChange={handleOnComplete}
-                ></CommonInput>
+                />
             </ListGroup.Item>
             {isEditing ? (
                 <ListGroup.Item>

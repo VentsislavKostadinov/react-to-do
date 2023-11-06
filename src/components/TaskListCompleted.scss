@@ -4,12 +4,11 @@
 
 .completed-list {
     @include task-styling;
-
+     background-color: inherit;
     .list-group-item {
         border: none;
-        background: inherit;
-        margin: 0.5rem;
-        background: $background-task;
+        background: $background-task-items;
+        margin: 0.3rem;
         width: 100%;
         color: $deleted-task;
 
