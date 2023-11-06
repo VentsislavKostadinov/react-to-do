@@ -1,9 +1,9 @@
 import React from 'react'
-import { TaskListCompletedProps } from './model/TaskListCompletedProps.types'
+import { TaskListCompletedProps } from '../model/TaskListCompletedProps.types'
 import { Container, ListGroup } from 'react-bootstrap'
 import './TaskListCompleted.scss'
-import { CommonHeadline } from './common/CommonHeadline'
-import { TaskProps } from './model/TaskProps.types'
+import { CommonHeadline } from '../common/CommonHeadline'
+import { TaskProps } from '../model/TaskProps.types'
 
 export const TaskCompletedList = ({ tasks }: TaskListCompletedProps) => {
     return (

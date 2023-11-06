@@ -1,6 +1,6 @@
-@import './font.scss';
-@import './style/variables';
-@import './style/mixins';
+@import '../style/font.scss';
+@import '../style/variables';
+@import '../style/mixins';
 
 .completed-list {
     @include task-styling;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { TaskProps } from './model/TaskProps.types'
-import { CommonInput } from './common/CommonInput'
-import { CommonButton } from './common/CommonButton'
+import { TaskProps } from '../model/TaskProps.types'
+import { CommonInput } from '../common/CommonInput'
+import { CommonButton } from '../common/CommonButton'
 import { ListGroup, Form } from 'react-bootstrap'
 import './Task.scss'
 
