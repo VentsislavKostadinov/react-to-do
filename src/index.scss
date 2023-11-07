@@ -1,3 +1,7 @@
+@import './style/font.scss';
+@import './style/variables';
 body {
   margin: 0;
+  background: $background-color !important;
+  height: 100vh;
 }

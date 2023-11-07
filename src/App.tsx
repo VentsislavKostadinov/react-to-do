@@ -6,7 +6,7 @@ import { TaskListProps } from './model/TaskListProps.types'
 import { TaskCompletedList } from './components/TaskListCompleted'
 import { TaskSearch } from './components/TaskSearch'
 import { CommonHeadline } from './common/CommonHeadline'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 export const App = () => {
     const [tasks, setTasks] = useState(
@@ -74,20 +74,24 @@ export const App = () => {
 
     return (
         <Container className="to-do">
-            <CommonHeadline title="To Do App" heading="h2" />
-            <TaskSearch filterTasks={filterTasks} />
-            <TaskList
-                tasks={
-                    filteredTasks.length > 0
-                        ? filteredTasks
-                        : sortIncompletedTasks(tasks)
-                }
-                onAdd={addTask}
-                onEdit={editTask}
-                onDelete={deleteTask}
-                onComplete={completeTask}
-            />
-            <TaskCompletedList tasks={tasks} />
+            <Row>
+                <Col>
+                    <CommonHeadline title="To Do App" heading="h2" />
+                    <TaskSearch filterTasks={filterTasks} />
+                    <TaskList
+                        tasks={
+                            filteredTasks.length > 0
+                                ? filteredTasks
+                                : sortIncompletedTasks(tasks)
+                        }
+                        onAdd={addTask}
+                        onEdit={editTask}
+                        onDelete={deleteTask}
+                        onComplete={completeTask}
+                    />
+                    <TaskCompletedList tasks={tasks} />
+                </Col>
+            </Row>
         </Container>
     )
 }

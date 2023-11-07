@@ -1,6 +1,7 @@
 @mixin task-styling() {
     font-family: 'Poppins-Regular', sans-serif;
-    background: $background-task-items;
+    background: $background-color;
+    color: $white-color;
     margin: 0.5rem;
     align-items: center;
     justify-content: space-around;

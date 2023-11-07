@@ -2,15 +2,40 @@
 @import '../style/variables';
 @import '../style/mixins';
 
-.list-group-horizontal {
+.task {
     @include task-styling;
+
+    .task-description {
+        max-height: 200px;
+        overflow-y: auto;
+        text-align: left;
+    }
 
     .list-group-item {
         border: inherit;
         background: inherit;
-    }
+        color: inherit !important;
 
-    &:hover {
-        background: $hover-task;
+        .btn {
+            color: inherit;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .task {
+        &:hover {
+            background: $hover-task;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .list-group-horizontal {
+        width: 100%;
+        overflow-x: auto;
+        .list-group-item {
+            padding: 0 !important;
+        }
     }
 }

@@ -2,13 +2,16 @@
 @import '../style/variables';
 @import '../style/mixins';
 
-.completed-list {
+.task-list-wrap {
     @include task-styling;
      background-color: inherit;
+     hr {
+        color: white !important;
+     }
     .list-group-item {
         border: none;
-        background: $background-task-items;
-        margin: 0.3rem;
+        background: inherit; 
+        margin: 0.5rem;
         width: 100%;
         color: $deleted-task;
 

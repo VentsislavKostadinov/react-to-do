@@ -6,3 +6,9 @@
         margin: auto;
     }
 }
+
+@media only screen and (max-width: 768px) {
+  .input-group {
+    max-width: 100%;
+  }
+}

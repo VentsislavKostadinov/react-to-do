@@ -19,6 +19,8 @@ export const TaskList = ({
     const [newTask, setNewTask] = useState<string>('')
     const [validated, setValidated] = useState<boolean>(false)
 
+    console.log(newTask.length)
+
     const handleSetNewTask = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewTask(e.target.value)
     }
@@ -53,29 +55,37 @@ export const TaskList = ({
                             dataTestid="add-input"
                         >
                             <CommonButton
-                                variant="dark"
+                                variant="info"
                                 text="Add"
                                 type="submit"
                             />
                             <CommonInvalidValiadationFeedback text="Please type a description" />
                         </CommonInput>
                     </Form>
-                    {tasks.length !== 0 ? (
-                        tasks.map((task: TaskProps | any, index: number) => (
-                            <Task
-                                key={index}
-                                task={task}
-                                onEdit={onEdit}
-                                onDelete={onDelete}
-                                onComplete={onComplete}
+                    <CommonHeadline title="Task list" heading="h2" />
+                    <div className="task-list-wrap">
+                        {tasks.length !== 0 ? (
+                            tasks.map(
+                                (task: TaskProps | any, index: number) => (
+                                    <div key={index}>
+                                        <Task
+                                            key={index}
+                                            task={task}
+                                            onEdit={onEdit}
+                                            onDelete={onDelete}
+                                            onComplete={onComplete}
+                                        />
+                                        <hr />
+                                    </div>
+                                ),
+                            )
+                        ) : (
+                            <CommonHeadline
+                                title="You list is empty"
+                                heading="h3"
                             />
-                        ))
-                    ) : (
-                        <CommonHeadline
-                            title="You list is empty"
-                            heading="h3"
-                        />
-                    )}
+                        )}
+                    </div>
                 </Col>
             </Row>
         </Container>
