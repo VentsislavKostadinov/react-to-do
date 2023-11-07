@@ -4,38 +4,21 @@
 
 .task {
     @include task-styling;
+    align-items: baseline;
 
     .task-description {
-        max-height: 200px;
-        overflow-y: auto;
+        max-height: 300px;
+        overflow: auto;
         text-align: left;
     }
-
-    .list-group-item {
-        border: inherit;
-        background: inherit;
-        color: inherit !important;
-
-        .btn {
-            color: inherit;
-        }
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .task {
-        &:hover {
-            background: $hover-task;
-        }
+    .btn {
+        color: inherit;
     }
 }
 
 @media only screen and (max-width: 576px) {
-    .list-group-horizontal {
-        width: 100%;
-        overflow-x: auto;
-        .list-group-item {
-            padding: 0 !important;
-        }
+    .container {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
 }
