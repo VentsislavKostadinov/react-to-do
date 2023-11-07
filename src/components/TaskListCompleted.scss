@@ -2,13 +2,13 @@
 @import '../style/variables';
 @import '../style/mixins';
 
-.task-list-wrap {
+.task-complete-wrap {
     @include task-styling;
      background-color: inherit;
      hr {
         color: white !important;
      }
-    .list-group-item {
+    .completed-items  {
         border: none;
         background: inherit; 
         margin: 0.5rem;
