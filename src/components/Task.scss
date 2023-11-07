@@ -7,9 +7,7 @@
     align-items: baseline;
 
     .task-description {
-        max-height: 300px;
-        overflow: auto;
-        text-align: left;
+        @include overflow-text-description;
     }
     .btn {
         color: inherit;

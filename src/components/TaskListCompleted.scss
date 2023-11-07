@@ -4,15 +4,16 @@
 
 .task-complete-wrap {
     @include task-styling;
-     background-color: inherit;
-     hr {
+    background-color: inherit;
+    hr {
         color: white !important;
-     }
-    .completed-items  {
+    }
+    .completed-items {
         border: none;
-        background: inherit; 
+        background: inherit;
         margin: 0.5rem;
         width: 100%;
         color: $deleted-task;
+        @include overflow-text-description;
     }
 }

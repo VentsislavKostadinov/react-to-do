@@ -7,3 +7,9 @@
     justify-content: space-around;
     text-align: center;
 }
+
+@mixin overflow-text-description() {
+    max-height: 300px;
+    overflow: auto;
+    text-align: left;
+}
