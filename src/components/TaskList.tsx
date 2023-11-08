@@ -63,18 +63,19 @@ export const TaskList = ({
                     <CommonHeadline title="Task list" heading="h2" />
                     <div>
                         {tasks.length !== 0 ? (
-                            tasks.map((task: TaskProps, index: number) => (
-                                <>
-                                    <Task
-                                        key={index}
-                                        task={task.task}
-                                        onEdit={onEdit}
-                                        onDelete={onDelete}
-                                        onComplete={onComplete}
-                                    />
-                                    <hr />
-                                </>
-                            ))
+                            tasks.map(
+                                (task: TaskProps | any, index: number) => (
+                                    <div key={index}>
+                                        <Task
+                                            task={task}
+                                            onEdit={onEdit}
+                                            onDelete={onDelete}
+                                            onComplete={onComplete}
+                                        />
+                                        <hr />
+                                    </div>
+                                ),
+                            )
                         ) : (
                             <CommonHeadline
                                 title="You list is empty"
