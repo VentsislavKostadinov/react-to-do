@@ -19,8 +19,6 @@ export const TaskList = ({
     const [newTask, setNewTask] = useState<string>('')
     const [validated, setValidated] = useState<boolean>(false)
 
-    console.log(newTask.length)
-
     const handleSetNewTask = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewTask(e.target.value)
     }
@@ -65,20 +63,18 @@ export const TaskList = ({
                     <CommonHeadline title="Task list" heading="h2" />
                     <div>
                         {tasks.length !== 0 ? (
-                            tasks.map(
-                                (task: TaskProps | any, index: number) => (
-                                    <div key={index}>
-                                        <Task
-                                            key={index}
-                                            task={task}
-                                            onEdit={onEdit}
-                                            onDelete={onDelete}
-                                            onComplete={onComplete}
-                                        />
-                                        <hr />
-                                    </div>
-                                ),
-                            )
+                            tasks.map((task: TaskProps, index: number) => (
+                                <>
+                                    <Task
+                                        key={index}
+                                        task={task.task}
+                                        onEdit={onEdit}
+                                        onDelete={onDelete}
+                                        onComplete={onComplete}
+                                    />
+                                    <hr />
+                                </>
+                            ))
                         ) : (
                             <CommonHeadline
                                 title="You list is empty"
