@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import './App.scss'
 import { TaskList } from './components/TaskList'
 import { TaskProps } from './model/TaskProps.types'
 import { TaskListProps } from './model/TaskListProps.types'
@@ -7,6 +6,7 @@ import { TaskCompletedList } from './components/TaskListCompleted'
 import { TaskSearch } from './components/TaskSearch'
 import { CommonHeadline } from './common/CommonHeadline'
 import { Col, Container, Row } from 'react-bootstrap'
+import classes from './style/App.module.scss'
 
 export const App = () => {
     const [tasks, setTasks] = useState(
@@ -73,7 +73,7 @@ export const App = () => {
     }
 
     return (
-        <Container className="to-do">
+        <Container className={classes.toDo}>
             <Row>
                 <Col>
                     <CommonHeadline title="To Do App" heading="h2" />

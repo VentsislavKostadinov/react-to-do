@@ -1,13 +1,13 @@
-@import '../style/font.scss';
-@import '../style/variables';
-@import '../style/mixins';
+@import '../style/global/font.scss';
+@import '../style/global/variables';
+@import '../style/global/mixins';
 
 .task {
     @include task-styling;
     align-items: baseline;
 
-    .task-description {
-        @include overflow-text-description;
+    .taskDescription {
+        @include overflow-text-description(left);
     }
     .btn {
         color: inherit;

@@ -1,5 +1,5 @@
-@import './style/font.scss';
-@import './style/variables';
+@import './style/global/font.scss';
+@import './style/global/variables';
 body {
   margin: 0;
   background: $background-color !important;

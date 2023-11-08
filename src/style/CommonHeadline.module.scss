@@ -1,0 +1,8 @@
+@import './global/font.scss';
+@import './global/variables';
+
+.title {
+  color: $white-color !important ; 
+  font-family: "Poppins-Bold", sans-serif;
+  margin-top: 2.5rem !important;
+}

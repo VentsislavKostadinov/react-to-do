@@ -7,7 +7,7 @@ import { CommonInput } from '../common/CommonInput'
 import { CommonInvalidValiadationFeedback } from '../common/CommonInvalidValiadationFeedback'
 import { Task } from './Task'
 import { TaskProps } from '../model/TaskProps.types'
-import './TaskList.scss'
+import classes from '../style/TaskList.module.scss'
 
 export const TaskList = ({
     tasks,
@@ -38,9 +38,9 @@ export const TaskList = ({
     }
 
     return (
-        <Container>
+        <Container className={classes.container}>
             <Row>
-                <Col>
+                <Col className={classes.col}>
                     <Form
                         noValidate
                         validated={validated}
@@ -51,7 +51,7 @@ export const TaskList = ({
                             value={newTask}
                             handleChange={handleSetNewTask}
                             placeholder="Enter a description"
-                            className="add-input"
+                            className={classes.addInput}
                             dataTestid="add-input"
                         >
                             <CommonButton
@@ -63,7 +63,7 @@ export const TaskList = ({
                         </CommonInput>
                     </Form>
                     <CommonHeadline title="Task list" heading="h2" />
-                    <div className="task-list-wrap">
+                    <div>
                         {tasks.length !== 0 ? (
                             tasks.map(
                                 (task: TaskProps | any, index: number) => (

@@ -1,6 +1,6 @@
-.input-group {
+.inputGroup {
     max-width: 50%;
-    margin: auto;
+    margin: auto !important;
 
     .form-label {
         margin: auto;
@@ -8,7 +8,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .input-group {
+  .inputGroup {
     max-width: 100%;
   }
 }
