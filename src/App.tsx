@@ -31,39 +31,39 @@ export const App = () => {
         }
     }
     const editTask = (taskId: number, newDescription: string) => {
-        setTasks((prevTasks: Array<TaskListProps>) =>
-            prevTasks.map((task: TaskProps | any) =>
-                task.id === taskId
+        setTasks((prevTasks: TaskListProps['tasks']) =>
+            prevTasks.map((task: TaskProps) =>
+                task.task.id === taskId
                     ? { ...task, description: newDescription }
                     : task,
             ),
         )
     }
     const deleteTask = (taskId: number) => {
-        setTasks((prevTasks: Array<TaskListProps>) =>
-            prevTasks.filter((task: TaskProps | any) => task.id !== taskId),
+        setTasks((prevTasks: TaskListProps['tasks']) =>
+            prevTasks.filter((task: TaskProps) => task.task.id !== taskId),
         )
     }
 
     const completeTask = (taskId: number) => {
-        setTasks((prevTasks: Array<TaskListProps>) =>
-            prevTasks.map((task: TaskProps | any) =>
-                task.id === taskId
-                    ? { ...task, completed: !task.completed }
+        setTasks((prevTasks: TaskListProps['tasks']) =>
+            prevTasks.map((task: TaskProps) =>
+                task.task.id === taskId
+                    ? { ...task, completed: !task.task.completed }
                     : task,
             ),
         )
     }
 
-    const sortIncompletedTasks = (taskList: TaskListProps | any) => {
-        return taskList.filter((task: TaskProps['task']) => !task.completed)
+    const sortIncompletedTasks = (taskList: TaskListProps['tasks']) => {
+        return taskList.filter((task: TaskProps) => !task.task.completed)
     }
 
     const filterTasks = (filterTask: string) => {
         if (filterTask.trim() === '') {
             setFilteredTasks([])
         } else {
-            const filtered = tasks.filter((task: TaskProps | any) =>
+            const filtered = tasks.filter((task: TaskProps['task']) =>
                 task.description
                     .toLowerCase()
                     .includes(filterTask.toLowerCase()),
