@@ -1,19 +1,19 @@
-@import '../style/font.scss';
-@import '../style/variables';
-@import '../style/mixins';
+@import '../style/global/font.scss';
+@import '../style/global/variables';
+@import '../style/global/mixins';
 
-.task-complete-wrap {
+.taskCompleteWrap {
     @include task-styling;
     background-color: inherit;
     hr {
         color: white !important;
     }
-    .completed-items {
+    .completedItems {
         border: none;
         background: inherit;
         margin: 0.5rem;
         width: 100%;
         color: $deleted-task;
-        @include overflow-text-description;
+        @include overflow-text-description(center);
     }
 }

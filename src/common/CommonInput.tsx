@@ -1,6 +1,6 @@
 import { Form, InputGroup } from 'react-bootstrap'
 import { InputProps } from '../model/InputProps.types'
-import './CommonInput.scss'
+import classes from '../style/CommonInput.module.scss'
 
 export const CommonInput = ({
     type,
@@ -24,7 +24,7 @@ export const CommonInput = ({
                     onChange={handleChange}
                 />
             ) : (
-                <InputGroup hasValidation>
+                <InputGroup hasValidation className={classes.inputGroup}>
                     <Form.Label>{label}</Form.Label>
                     <Form.Control
                         required

@@ -1,4 +1,4 @@
-@import '../style/variables';
+@import '../style/global/variables';
 .container {
     text-align: center;
     padding-top: 3rem;
@@ -8,7 +8,7 @@
             padding-top: 2rem !important;
         }
 
-        .add-input {
+        .addInput {
             border-radius: 5px 0 0 5px !important;
         }
         .form-check-input {

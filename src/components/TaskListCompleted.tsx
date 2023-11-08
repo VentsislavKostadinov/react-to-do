@@ -1,7 +1,7 @@
 import React from 'react'
 import { TaskListCompletedProps } from '../model/TaskListCompletedProps.types'
 import { Col, Container, Row } from 'react-bootstrap'
-import './TaskListCompleted.scss'
+import classes from '../style/TaskListCompleted.module.scss'
 import { CommonHeadline } from '../common/CommonHeadline'
 import { TaskProps } from '../model/TaskProps.types'
 
@@ -16,13 +16,15 @@ export const TaskCompletedList = ({ tasks }: TaskListCompletedProps) => {
                                 title="Completed Tasks"
                                 heading="h2"
                             />
-                            <div className="task-complete-wrap">
+                            <div className={classes.taskCompleteWrap}>
                                 {tasks.map(
                                     (task: TaskProps | any, index: number) =>
                                         task.completed && (
                                             <div key={index}>
                                                 <div
-                                                    className="completed-items "
+                                                    className={
+                                                        classes.completedItems
+                                                    }
                                                     key={task.id}
                                                 >
                                                     <del>

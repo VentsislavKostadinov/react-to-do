@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CommonInput } from '../common/CommonInput'
 import { TaskSearchProps } from '../model/TaskSearchProps.types'
-import './TaskSearch.scss'
+import classes from '../style/TaskSearch.module.scss'
 
 export const TaskSearch = ({ filterTasks }: TaskSearchProps) => {
     const [searchTask, setSearchTask] = useState('')
@@ -18,7 +18,7 @@ export const TaskSearch = ({ filterTasks }: TaskSearchProps) => {
             placeholder="Search task"
             value={searchTask}
             handleChange={handleChange}
-            className="search-task"
+            className={classes.searchTask}
             dataTestid="search-task"
         />
     )

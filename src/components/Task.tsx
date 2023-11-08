@@ -3,7 +3,9 @@ import { TaskProps } from '../model/TaskProps.types'
 import { CommonInput } from '../common/CommonInput'
 import { CommonButton } from '../common/CommonButton'
 import { Form, Container, Row, Col } from 'react-bootstrap'
-import './Task.scss'
+import { EditButton } from './EditButton'
+import { DeleteButton } from './DeleteButton'
+import classes from '../style/Task.module.scss'
 
 export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     const [isEditing, setIsEditing] = useState<TaskProps['task']['completed']>(
@@ -40,9 +42,9 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     }
 
     return (
-        <Container>
+        <Container className={classes.container}>
             <Row>
-                <Col className="task">
+                <Col className={classes.task}>
                     {isEditing ? (
                         <Form
                             noValidate
@@ -74,22 +76,19 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
                                     handleChange={handleOnComplete}
                                 />
                             </Col>
-                            <Col lg={9} xs={10} className="task-description">
+                            <Col
+                                lg={9}
+                                xs={10}
+                                className={classes.taskDescription}
+                            >
                                 {task.description}
                             </Col>
-                            <Col lg={2}>
-                                <CommonButton
-                                    text="Edit"
-                                    variant="transparent"
-                                    type="button"
+                            <Col lg={2} className={classes.btn}>
+                                <EditButton
                                     handleClick={handleEditTask}
+                                    className={classes.btn}
                                 />
-                                <CommonButton
-                                    text="Delete"
-                                    variant="transparent"
-                                    type="button"
-                                    handleClick={handleDelete}
-                                />
+                                <DeleteButton handleClick={handleDelete} />
                             </Col>
                         </Row>
                     )}

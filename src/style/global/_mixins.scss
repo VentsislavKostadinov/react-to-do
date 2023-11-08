@@ -8,8 +8,8 @@
     text-align: center;
 }
 
-@mixin overflow-text-description() {
+@mixin overflow-text-description($text-align) {
     max-height: 300px;
     overflow: auto;
-    text-align: left;
+    text-align: $text-align
 }
