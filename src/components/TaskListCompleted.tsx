@@ -18,17 +18,17 @@ export const TaskCompletedList = ({ tasks }: TaskListCompletedProps) => {
                             />
                             <div className={classes.taskCompleteWrap}>
                                 {tasks.map(
-                                    (task: TaskProps, index: number) =>
-                                        task.task.completed && (
+                                    (task: TaskProps | any, index: number) =>
+                                        task.completed && (
                                             <div key={index}>
                                                 <div
                                                     className={
                                                         classes.completedItems
                                                     }
-                                                    key={task.task.id}
+                                                    key={task.id}
                                                 >
                                                     <del>
-                                                        {task.task.description}
+                                                        {task.description}
                                                     </del>
                                                 </div>
                                                 <hr />

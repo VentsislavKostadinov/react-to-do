@@ -41,29 +41,29 @@ export const App = () => {
     }
     const deleteTask = (taskId: number) => {
         setTasks((prevTasks: TaskListProps['tasks']) =>
-            prevTasks.filter((task: TaskProps) => task.task.id !== taskId),
+            prevTasks.filter((task: TaskProps | any) => task.id !== taskId),
         )
     }
 
     const completeTask = (taskId: number) => {
         setTasks((prevTasks: TaskListProps['tasks']) =>
-            prevTasks.map((task: TaskProps) =>
+            prevTasks.map((task: TaskProps | any) =>
                 task.task.id === taskId
-                    ? { ...task, completed: !task.task.completed }
+                    ? { ...task, completed: !task.completed }
                     : task,
             ),
         )
     }
 
     const sortIncompletedTasks = (taskList: TaskListProps['tasks']) => {
-        return taskList.filter((task: TaskProps) => !task.task.completed)
+        return taskList.filter((task: TaskProps | any) => !task.completed)
     }
 
     const filterTasks = (filterTask: string) => {
         if (filterTask.trim() === '') {
             setFilteredTasks([])
         } else {
-            const filtered = tasks.filter((task: TaskProps['task']) =>
+            const filtered = tasks.filter((task: TaskProps | any) =>
                 task.description
                     .toLowerCase()
                     .includes(filterTask.toLowerCase()),
