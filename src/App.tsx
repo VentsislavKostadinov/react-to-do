@@ -48,7 +48,7 @@ export const App = () => {
     const completeTask = (taskId: number) => {
         setTasks((prevTasks: TaskListProps['tasks']) =>
             prevTasks.map((task: TaskProps | any) =>
-                task.task.id === taskId
+                task.id === taskId
                     ? { ...task, completed: !task.completed }
                     : task,
             ),
