@@ -8,6 +8,7 @@ import { CommonInvalidValiadationFeedback } from '../common/CommonInvalidValiada
 import { Task } from './Task'
 import { TaskProps } from '../model/TaskProps.types'
 import classes from '../style/TaskList.module.scss'
+import { AddTask } from './AddTask'
 
 export const TaskList = ({
     tasks,
@@ -16,50 +17,12 @@ export const TaskList = ({
     onDelete,
     onComplete,
 }: TaskListProps) => {
-    const [newTask, setNewTask] = useState<string>('')
-    const [validated, setValidated] = useState<boolean>(false)
-
-    const handleSetNewTask = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setNewTask(e.target.value)
-    }
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-
-        if (newTask === '') {
-            setValidated(true)
-        } else {
-            setValidated(false)
-            onAdd(newTask)
-            setNewTask('')
-        }
-    }
 
     return (
         <Container className={classes.container}>
             <Row>
                 <Col className={classes.col}>
-                    <Form
-                        noValidate
-                        validated={validated}
-                        onSubmit={handleSubmit}
-                    >
-                        <CommonInput
-                            type="text"
-                            value={newTask}
-                            handleChange={handleSetNewTask}
-                            placeholder="Enter a description"
-                            className={classes.addInput}
-                            dataTestid="add-input"
-                        >
-                            <CommonButton
-                                variant="info"
-                                text="Add"
-                                type="submit"
-                            />
-                            <CommonInvalidValiadationFeedback text="Please type a description" />
-                        </CommonInput>
-                    </Form>
+                    <AddTask onAdd={onAdd} />
                     <CommonHeadline title="Task list" heading="h2" />
                     <div>
                         {tasks.length !== 0 ? (
