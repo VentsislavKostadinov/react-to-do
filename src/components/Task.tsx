@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { TaskProps } from '../model/TaskProps.types'
 import { CommonInput } from '../common/CommonInput'
-import { CommonButton } from '../common/CommonButton'
-import { Form, Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { EditButton } from './EditButton'
 import { DeleteButton } from './DeleteButton'
 import classes from '../style/Task.module.scss'
+import { EditTask } from './EditTask'
 
 export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     const [isEditing, setIsEditing] = useState<TaskProps['task']['completed']>(
@@ -26,12 +26,13 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
             setIsEditing(false)
         }
     }
-    const saveEditedTask = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditedTask(e.target.value)
-    }
     const handleEditTask = () => {
         setIsEditing(true)
         setEditedTask(task.description)
+    }
+
+    const saveEditedTask = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditedTask(e.target.value)
     }
 
     const handleOnComplete = () => {
@@ -47,25 +48,13 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
             <Row>
                 <Col className={classes.task}>
                     {isEditing ? (
-                        <Form
-                            noValidate
+                        <EditTask
+                            task={task}
                             validated={validated}
-                            onSubmit={handleSave}
-                        >
-                            <CommonInput
-                                className="input-text-edit"
-                                data-testid="input-text-edit"
-                                type="text"
-                                value={editedTask}
-                                checked={task.completed}
-                                handleChange={saveEditedTask}
-                            />
-                            <CommonButton
-                                text="Save"
-                                variant="transparent"
-                                type="submit"
-                            />
-                        </Form>
+                            handleSave={handleSave}
+                            editedTask={editedTask}
+                            saveEditedTask={saveEditedTask}
+                        />
                     ) : (
                         <Row>
                             <Col>
