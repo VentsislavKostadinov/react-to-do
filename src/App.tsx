@@ -32,8 +32,8 @@ export const App = () => {
     }
     const editTask = (taskId: number, newDescription: string) => {
         setTasks((prevTasks: TaskListProps['tasks']) =>
-            prevTasks.map((task: TaskProps) =>
-                task.task.id === taskId
+            prevTasks.map((task: any) =>
+                task.id === taskId
                     ? { ...task, description: newDescription }
                     : task,
             ),
@@ -56,14 +56,14 @@ export const App = () => {
     }
 
     const sortIncompletedTasks = (taskList: TaskListProps['tasks']) => {
-        return taskList.filter((task: TaskProps | any) => !task.completed)
+        return taskList.filter((task: any) => !task.completed)
     }
 
     const filterTasks = (filterTask: string) => {
         if (filterTask.trim() === '') {
             setFilteredTasks([])
         } else {
-            const filtered = tasks.filter((task: TaskProps | any) =>
+            const filtered = sortIncompletedTasks(tasks).filter((task: any) =>
                 task.description
                     .toLowerCase()
                     .includes(filterTask.toLowerCase()),
