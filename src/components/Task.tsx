@@ -31,6 +31,7 @@ export const Task = ({ task, onEdit, onDelete, onComplete }: TaskProps) => {
     }
     const handleEditTask = () => {
         setIsEditing(true)
+        setEditedTask(task.description)
     }
 
     const handleOnComplete = () => {
