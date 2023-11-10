@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonHeadline component it renders correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="title h2"
+    data-testid="to-do-app"
+  >
+    To Do App
+  </p>
+</DocumentFragment>
+`;

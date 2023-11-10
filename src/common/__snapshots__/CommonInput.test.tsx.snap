@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonInput component render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="inputGroup input-group has-validation"
+  >
+    <label
+      class="form-label"
+    >
+      Add text
+    </label>
+    <input
+      class="form-control"
+      data-testid="input-type"
+      placeholder="Enter a description"
+      required=""
+      type="text"
+      value="John Doe"
+    />
+  </div>
+</DocumentFragment>
+`;

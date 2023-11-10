@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonButton component it renders correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn btn-transparent"
+    data-testid="add-btn"
+    type="submit"
+  >
+    Add
+  </button>
+</DocumentFragment>
+`;

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="toDo container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col"
+      >
+        <p
+          class="title h2"
+        >
+          To Do App
+        </p>
+        <div
+          class="inputGroup input-group has-validation"
+        >
+          <label
+            class="form-label"
+          />
+          <input
+            class="searchTask form-control"
+            data-testid="search-task"
+            placeholder="Search task"
+            required=""
+            type="search"
+            value=""
+          />
+        </div>
+        <div
+          class="container container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col col"
+            >
+              <form
+                class=""
+                novalidate=""
+              >
+                <div
+                  class="inputGroup input-group has-validation"
+                >
+                  <label
+                    class="form-label"
+                  />
+                  <input
+                    class="addInput form-control"
+                    data-testid="add-input"
+                    placeholder="Enter a description"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    class="btn btn btn-info"
+                    type="submit"
+                  >
+                    Add
+                  </button>
+                  <div
+                    class="invalid-feedback"
+                  >
+                    Please type a description
+                  </div>
+                </div>
+              </form>
+              <p
+                class="title h2"
+              >
+                Task list
+              </p>
+              <div>
+                <p
+                  class="title h3"
+                >
+                  You list is empty
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

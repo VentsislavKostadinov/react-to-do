@@ -1,5 +1,5 @@
 import { Form, InputGroup } from 'react-bootstrap'
-import { InputProps } from '../model/InputProps.types'
+import { CommonInputProps } from '../model/CommonInputProps.types'
 import classes from '../style/CommonInput.module.scss'
 
 export const CommonInput = ({
@@ -12,7 +12,7 @@ export const CommonInput = ({
     className,
     dataTestid,
     children,
-}: InputProps) => {
+}: CommonInputProps) => {
     return (
         <>
             {type === 'checkbox' ? (
