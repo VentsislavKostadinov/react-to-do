@@ -1,8 +1,13 @@
 import { Form } from 'react-bootstrap'
-import { InvalidValiadationFeedback } from '../model/InvalidValiadationFeedbackProps.types'
+import { CommonInvalidValiadationFeedbackProps } from '../model/CommonInvalidValiadationFeedbackProps.types'
 
 export const CommonInvalidValiadationFeedback = ({
     text,
-}: InvalidValiadationFeedback) => {
-    return <Form.Control.Feedback type="invalid">{text}</Form.Control.Feedback>
+    dataTestid,
+}: CommonInvalidValiadationFeedbackProps) => {
+    return (
+        <Form.Control.Feedback data-testid={dataTestid} type="invalid">
+            {text}
+        </Form.Control.Feedback>
+    )
 }

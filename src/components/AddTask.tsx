@@ -36,7 +36,7 @@ export const AddTask = ({onAdd}: AddTaskProps) => {
                 className={classes.addInput}
                 dataTestid="add-input"
             >
-                <CommonButton variant="info" text="Add" type="submit" />
+                <CommonButton data-testid='add-btn' variant="info" text="Add" type="submit" />
                 <CommonInvalidValiadationFeedback text="Please type a description" />
             </CommonInput>
         </Form>
