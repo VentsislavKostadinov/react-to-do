@@ -5,7 +5,7 @@ import classes from '../style/TaskListCompleted.module.scss'
 import { CommonHeadline } from '../common/CommonHeadline'
 import { TaskProps } from '../model/TaskProps.types'
 
-export const TaskCompletedList = ({ tasks }: TaskListCompletedProps) => {
+export const TaskListCompleted = ({ tasks }: TaskListCompletedProps) => {
     return (
         <Container>
             <Row>
@@ -13,6 +13,7 @@ export const TaskCompletedList = ({ tasks }: TaskListCompletedProps) => {
                     {tasks.length !== 0 ? (
                         <>
                             <CommonHeadline
+                                dataTestid="completed-tasks"
                                 title="Completed Tasks"
                                 heading="h2"
                             />

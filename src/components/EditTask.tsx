@@ -10,13 +10,13 @@ export const EditTask = ({ task, validated, handleSave, editedTask, saveEditedTa
         <Form noValidate validated={validated} onSubmit={handleSave}>
             <CommonInput
                 className="input-text-edit"
-                data-testid="input-text-edit"
+                dataTestid="input-text-edit"
                 type="text"
                 value={editedTask}
                 checked={task.completed}
                 handleChange={saveEditedTask}
             />
-            <CommonButton text="Save" variant="transparent" type="submit" />
+            <CommonButton dataTestid='save-edit-task-btn' text="Save" variant="transparent" type="submit" />
         </Form>
     )
 }

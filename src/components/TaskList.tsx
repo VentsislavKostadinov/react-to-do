@@ -14,13 +14,16 @@ export const TaskList = ({
     onDelete,
     onComplete,
 }: TaskListProps) => {
-
     return (
         <Container className={classes.container}>
             <Row>
                 <Col className={classes.col}>
                     <AddTask onAdd={onAdd} />
-                    <CommonHeadline title="Task list" heading="h2" />
+                    <CommonHeadline
+                        dataTestid="task-list"
+                        title="Task list"
+                        heading="h2"
+                    />
                     <div>
                         {tasks.length !== 0 ? (
                             tasks.map(
@@ -38,6 +41,7 @@ export const TaskList = ({
                             )
                         ) : (
                             <CommonHeadline
+                                dataTestid="empty-task-list"
                                 title="You list is empty"
                                 heading="h3"
                             />
