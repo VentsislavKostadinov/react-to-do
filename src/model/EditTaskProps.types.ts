@@ -1,6 +1,7 @@
+import { BaseProps } from "./BaseProps.types";
 import { TaskProps } from "./TaskProps.types";
 
-export interface EditTaskProps {
+export interface EditTaskProps extends BaseProps {
 
     task: TaskProps['task']
     handleSave: React.FormEventHandler<HTMLFormElement>

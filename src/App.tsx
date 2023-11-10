@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { TaskList } from './components/TaskList'
 import { TaskProps } from './model/TaskProps.types'
 import { TaskListProps } from './model/TaskListProps.types'
-import { TaskCompletedList } from './components/TaskListCompleted'
+import { TaskListCompleted } from './components/TaskListCompleted'
 import { TaskSearch } from './components/TaskSearch'
 import { CommonHeadline } from './common/CommonHeadline'
 import { Col, Container, Row } from 'react-bootstrap'
@@ -89,7 +89,7 @@ export const App = () => {
                         onDelete={deleteTask}
                         onComplete={completeTask}
                     />
-                    <TaskCompletedList tasks={tasks} />
+                    <TaskListCompleted tasks={tasks} />
                 </Col>
             </Row>
         </Container>

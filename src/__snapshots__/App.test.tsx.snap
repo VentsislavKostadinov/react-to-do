@@ -73,12 +73,14 @@ exports[`App matches snapshot 1`] = `
               </form>
               <p
                 class="title h2"
+                data-testid="task-list"
               >
                 Task list
               </p>
               <div>
                 <p
                   class="title h3"
+                  data-testid="empty-task-list"
                 >
                   You list is empty
                 </p>

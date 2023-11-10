@@ -9,6 +9,7 @@ export const EditButton = ({ handleClick }: EditButtonProps) => {
             variant="transparent"
             type="button"
             handleClick={handleClick}
+            dataTestid='edit-btn'
         />
     )
 }
