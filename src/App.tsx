@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { TaskList } from './components/TaskList'
-import { TaskProps } from './model/TaskProps.types'
 import { TaskListProps } from './model/TaskListProps.types'
 import { TaskListCompleted } from './components/TaskListCompleted'
 import { TaskSearch } from './components/TaskSearch'
@@ -41,13 +40,13 @@ export const App = () => {
     }
     const deleteTask = (taskId: number) => {
         setTasks((prevTasks: TaskListProps['tasks']) =>
-            prevTasks.filter((task: TaskProps | any) => task.id !== taskId),
+            prevTasks.filter((task: any) => task.id !== taskId),
         )
     }
 
     const completeTask = (taskId: number) => {
         setTasks((prevTasks: TaskListProps['tasks']) =>
-            prevTasks.map((task: TaskProps | any) =>
+            prevTasks.map((task: any) =>
                 task.id === taskId
                     ? { ...task, completed: !task.completed }
                     : task,

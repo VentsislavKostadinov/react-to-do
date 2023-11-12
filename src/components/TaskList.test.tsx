@@ -1,7 +1,7 @@
 import React from 'react'
 import { TaskList } from './TaskList'
 import { TaskListProps } from '../model/TaskListProps.types'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('TaskList component', () => {
     const taskListProps: TaskListProps = {
@@ -33,7 +33,7 @@ describe('TaskList component', () => {
 
         const container = document.querySelectorAll('.container')
 
-         expect(container[1].innerHTML).toContain('Edit')
-         expect(container[1].innerHTML).toContain('Delete')
+        expect(container[1].innerHTML).toContain('Edit')
+        expect(container[1].innerHTML).toContain('Delete')
     })
 })

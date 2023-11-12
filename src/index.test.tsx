@@ -16,7 +16,6 @@ describe('index.tsx', () => {
     })
 
     it('renders the App component inside in index.tsx StrictMode file', () => {
-        // Render index.tsx
         const app = mockRoot
         const root = createRoot(app!)
         require('./index.tsx')
